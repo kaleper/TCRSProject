@@ -7,28 +7,32 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-
 public class MyJDBC {
 
+    private static final String URL = "jdbc:mysql://localhost:3306/tcrs_database";
+    private static final String USERNAME = "root";
+    private static final String PASSWORD = "toor";
     public static void main (String[] args) {
 
         try {
 
-            /* Establishes connection to MySql. Local host number is default for MySQL.
+            /*
+            Establishes connection to MySql. Local host number is default for MySQL.
+            DriverManager = Basic service for managing JDBC drivers
+            Connection = connection with a specific database
+            */
 
-           DriverManager = Basic service for managing JDBC drivers
-           Connection = connection with a specific database */
-            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/TCRS_Database",
-                    "root", "toor"); // Change to your MySQL user + password
+            // Change to your MySQL user + password
+            Connection connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
 
             // Statement = interface representing a SQL statement.
             Statement statement = connection.createStatement();
 
-            ResultSet resultSet = statement.executeQuery("select * from Users");
+            ResultSet resultSet = statement.executeQuery("select * from citations");
 
             // next() returns a boolean, returns all data while true
             while (resultSet.next()) {
-                System.out.println(resultSet.getString("username"));
+                System.out.println(resultSet.getString("licence_plate"));
             }
         } catch (Exception e) {
             e.printStackTrace();
