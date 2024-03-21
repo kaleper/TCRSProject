@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class UtilityDB extends MyJDBC {
     public static void main(String[] args) {
-        System.out.println(DBQuery("citations", "licence_plate"));
+        System.out.println(DBQueryCol("citations", "licence_plate"));
         System.out.println(itemExists("citations", "licence_plate","CKR423"));
     }
 
@@ -38,7 +38,7 @@ public class UtilityDB extends MyJDBC {
     }
 
     // returns a list of all items from a column in a specific table
-    public static ArrayList<String> DBQuery(String table, String column) {
+    public static ArrayList<String> DBQueryCol(String table, String column) {
         ArrayList<String> strings = new ArrayList<>();
         Connection connection = null;
         Statement statement = null;
@@ -59,5 +59,37 @@ public class UtilityDB extends MyJDBC {
             DbUtils.closeQuietly(connection);
         }
         return strings;
+    }
+
+    // returns all the information from a row based on if an item matches in a specific column
+    public static ArrayList<String[]> DBQueryRows(String table, String conditionColumn, String conditionValue) {
+        ArrayList<String[]> rows = new ArrayList<>();
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+
+        try {
+            connection = DriverManager.getConnection(getURL(), getUSERNAME(), getPASSWORD());
+            String query = "SELECT * FROM " + table + " WHERE " + conditionColumn + " = ?";
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, conditionValue);
+            resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                int columnCount = resultSet.getMetaData().getColumnCount();
+                String[] rowData = new String[columnCount];
+                for (int i = 1; i <= columnCount; i++) {
+                    rowData[i - 1] = resultSet.getString(i);
+                }
+                rows.add(rowData);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            DbUtils.closeQuietly(resultSet);
+            DbUtils.closeQuietly(preparedStatement);
+            DbUtils.closeQuietly(connection);
+        }
+        return rows;
     }
 }
