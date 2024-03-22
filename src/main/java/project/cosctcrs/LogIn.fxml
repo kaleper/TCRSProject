@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.effect.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #403248;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.cosctcrs.LoggedInOfficer">
+   <children>
+      <VBox alignment="CENTER" layoutX="183.0" layoutY="152.0" prefHeight="119.0" prefWidth="237.0" spacing="20.0">
+         <children>
+            <TextField promptText="Username" style="-fx-background-color: #5F4D6B; -fx-border-color: #f2e8cf; -fx-cursor: hand;" />
+            <TextField promptText="Password" style="-fx-background-color: #5F4D6B; -fx-border-color: #f2e8cf; -fx-cursor: hand;" />
+         </children>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </VBox>
+      <Button layoutX="274.0" layoutY="286.0" mnemonicParsing="false" style="-fx-background-color: #5F4D6B; -fx-border-color: #f2e8cf; -fx-cursor: hand;" text="Login" textFill="#f2e8cf" />
+      <TextFlow layoutX="14.0" layoutY="14.0" prefHeight="64.0" prefWidth="200.0">
+         <children>
+            <Label prefHeight="27.0" prefWidth="190.0" text="TCRS System" textFill="#f2e8cf">
+               <font>
+                  <Font name="System Bold" size="30.0" />
+               </font>
+            </Label>
+            <Label text="Local Government" textFill="#f2e8cf">
+               <font>
+                  <Font name="System Italic" size="13.0" />
+               </font>
+            </Label>
+         </children>
+      </TextFlow>
+      <TextFlow layoutX="188.0" layoutY="47.0" prefHeight="126.0" prefWidth="226.0" textAlignment="CENTER">
+         <children>
+            <Label prefHeight="126.0" prefWidth="223.0" text="Enter Credentials " textAlignment="CENTER" textFill="#f2e8cf" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="30.0" />
+               </font>
+            </Label>
+         </children>
+      </TextFlow>
+      <TextFlow layoutX="436.0" layoutY="9.0" prefHeight="55.0" prefWidth="164.0" textAlignment="CENTER">
+         <children>
+            <Label fx:id="date" prefHeight="50.0" prefWidth="199.0" text="Date" textAlignment="CENTER" textFill="#f2e8cf">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </TextFlow>
+      <ImageView fitHeight="43.0" fitWidth="40.0" layoutX="206.0" layoutY="14.0">
+         <image>
+            <Image url="@../../../images/Logo.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

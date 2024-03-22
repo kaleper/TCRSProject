@@ -10,7 +10,8 @@ import org.apache.commons.dbutils.DbUtils;
 
 public class MyJDBC {
 
-    private static final String URL = "jdbc:mysql://localhost:3306/tcrs_database";
+    // Change to your database name
+    private static final String URL = "jdbc:mysql://localhost:3306/tcrs";
     private static final String USERNAME = "root";
     private static final String PASSWORD = "toor";
     public static void main (String[] args) {
