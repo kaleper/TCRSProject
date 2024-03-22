@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.effect.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #403248;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.cosctcrs.LogIn">
+   <children>
+      <TextFlow layoutX="188.0" layoutY="15.0" prefHeight="64.0" prefWidth="200.0">
+         <children>
+            <Label prefHeight="27.0" prefWidth="190.0" text="TCRS System" textFill="#f2e8cf">
+               <font>
+                  <Font name="System Bold" size="30.0" />
+               </font>
+            </Label>
+            <Label text="Local Government" textFill="#f2e8cf">
+               <font>
+                  <Font name="System Italic" size="19.0" />
+               </font>
+            </Label>
+         </children>
+      </TextFlow>
+      <TextFlow layoutX="436.0" layoutY="9.0" prefHeight="55.0" prefWidth="164.0" textAlignment="CENTER">
+         <children>
+            <Label fx:id="date" prefHeight="50.0" prefWidth="199.0" text="Date" textAlignment="CENTER" textFill="#f2e8cf">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </TextFlow>
+      <ImageView fitHeight="43.0" fitWidth="40.0" layoutX="380.0" layoutY="26.0">
+         <image>
+            <Image url="@../../../images/Logo.png" />
+         </image>
+      </ImageView>
+      <TextFlow layoutX="14.0" layoutY="1.0" prefHeight="126.0" prefWidth="170.0">
+         <children>
+            <Label prefHeight="54.0" prefWidth="171.0" text="Welcome," textAlignment="CENTER" textFill="#f2e8cf" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label prefHeight="16.0" prefWidth="32.0" text="Title |" textFill="#f2e8cf" />
+            <Label prefHeight="17.0" prefWidth="121.0" text="First + Last Name" textFill="#f2e8cf" />
+         </children>
+      </TextFlow>
+      <Pane layoutX="139.0" layoutY="130.0" prefHeight="200.0" prefWidth="370.0">
+         <children>
+            <VBox alignment="CENTER" prefHeight="119.0" prefWidth="237.0" spacing="40.0">
+               <children>
+                  <VBox prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Label text="Driver Look Up" textFill="#f2e8cf">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <TextField promptText="Enter a name or license plate" style="-fx-background-color: #5F4D6B; -fx-border-color: #f2e8cf; -fx-cursor: hand;" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Label text="Officer Look Up" textFill="#f2e8cf">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <TextField promptText="Enter a name or officer number" style="-fx-background-color: #5F4D6B; -fx-border-color: #f2e8cf; -fx-cursor: hand;" />
+                     </children>
+                  </VBox>
+               </children>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </VBox>
+            <Button alignment="CENTER" layoutX="246.0" layoutY="24.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="113.0" style="-fx-background-color: #5F4D6B; -fx-border-color: #f2e8cf; -fx-cursor: hand;" text="Search Drivers" textFill="#f2e8cf">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button alignment="CENTER" layoutX="246.0" layoutY="115.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="113.0" style="-fx-background-color: #5F4D6B; -fx-border-color: #f2e8cf; -fx-cursor: hand;" text="Search Officers" textFill="#f2e8cf">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
