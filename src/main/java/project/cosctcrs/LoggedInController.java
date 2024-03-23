@@ -21,7 +21,8 @@ public class LoggedInController implements Initializable {
 
     @FXML
     Label label_name;
-
+    @FXML
+    Label date;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         button_logout.setOnAction(new EventHandler<ActionEvent>() {
@@ -31,6 +32,7 @@ public class LoggedInController implements Initializable {
 
             }
         });
+        date.setText(Main.getDate());
     }
     public void setUserInformation(String title, String first_name, String last_name){
         label_title.setText(title);
