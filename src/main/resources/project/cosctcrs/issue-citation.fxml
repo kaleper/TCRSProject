@@ -99,16 +99,16 @@
       </HBox>
    </bottom>
    <center>
-      <HBox alignment="CENTER" fillHeight="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="343.0" prefWidth="828.0" BorderPane.alignment="CENTER">
+      <HBox alignment="CENTER" fillHeight="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="406.0" prefWidth="828.0" BorderPane.alignment="CENTER">
          <children>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="828.0" HBox.hgrow="NEVER">
+            <VBox alignment="CENTER" prefHeight="365.0" prefWidth="828.0" HBox.hgrow="NEVER">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
                <children>
-                  <HBox alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT" prefHeight="24.0" prefWidth="800.0">
+                  <HBox alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT" prefHeight="58.0" prefWidth="828.0">
                      <children>
-                        <TextFlow prefHeight="29.0" prefWidth="836.0" textAlignment="CENTER">
+                        <TextFlow prefHeight="22.0" prefWidth="828.0" textAlignment="CENTER">
                            <children>
                               <Label alignment="CENTER" prefHeight="27.0" prefWidth="808.0" text="Issue Citation" textFill="#f2e8cf">
                                  <font>
@@ -119,11 +119,11 @@
                         </TextFlow>
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER" fillHeight="false" prefHeight="17.0" prefWidth="828.0">
+                  <HBox alignment="CENTER" fillHeight="false" prefHeight="29.0" prefWidth="828.0">
                      <children>
-                        <TextFlow prefWidth="200.0" textAlignment="CENTER">
+                        <TextFlow prefHeight="0.0" prefWidth="200.0" textAlignment="CENTER">
                            <children>
-                              <Label alignment="CENTER" prefHeight="68.0" prefWidth="139.0" text="Driver Name" textFill="#f2e8cf">
+                              <Label alignment="CENTER" prefHeight="30.0" prefWidth="200.0" text="Driver Name" textFill="#f2e8cf">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -132,7 +132,7 @@
                         </TextFlow>
                         <TextFlow prefWidth="200.0" textAlignment="CENTER">
                            <children>
-                              <Label alignment="CENTER" prefHeight="68.0" prefWidth="139.0" text="Driver's License #" textFill="#f2e8cf">
+                              <Label alignment="CENTER" prefHeight="18.0" prefWidth="200.0" text="Driver's License #" textFill="#f2e8cf">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -141,7 +141,7 @@
                         </TextFlow>
                         <TextFlow prefWidth="200.0" textAlignment="CENTER">
                            <children>
-                              <Label alignment="CENTER" prefHeight="68.0" prefWidth="139.0" text="Driver's Address" textFill="#f2e8cf">
+                              <Label alignment="CENTER" prefHeight="18.0" prefWidth="200.0" text="Driver's Address" textFill="#f2e8cf">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -150,7 +150,7 @@
                         </TextFlow>
                         <TextFlow prefWidth="200.0" textAlignment="CENTER">
                            <children>
-                              <Label alignment="CENTER" prefHeight="68.0" prefWidth="139.0" text="Driver Phone Number" textFill="#f2e8cf">
+                              <Label alignment="CENTER" prefHeight="18.0" prefWidth="200.0" text="Driver Phone Number" textFill="#f2e8cf">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -161,11 +161,11 @@
                   </HBox>
                   <VBox alignment="CENTER" prefHeight="220.0" prefWidth="828.0">
                      <children>
-                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                        <HBox alignment="CENTER" prefHeight="83.0" prefWidth="828.0">
                            <children>
                               <VBox alignment="CENTER" prefHeight="49.0" prefWidth="821.0">
                                  <children>
-                                    <TextFlow prefHeight="38.0" prefWidth="380.0">
+                                    <TextFlow prefHeight="19.0" prefWidth="414.0">
                                        <children>
                                           <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="414.0" text="SELECT A CITATION" textFill="#f2e8cf">
                                              <font>
@@ -174,7 +174,7 @@
                                           </Label>
                                        </children>
                                     </TextFlow>
-                                    <ComboBox prefHeight="44.0" prefWidth="343.0" style="-fx-background-color: #5F4D6B; -fx-border-color: #f2e8cf; -fx-cursor: hand; -fx-text-fill: white;">
+                                    <ComboBox prefHeight="25.0" prefWidth="343.0" style="-fx-background-color: #5F4D6B; -fx-border-color: #f2e8cf; -fx-cursor: hand; -fx-text-fill: white;">
                                        <VBox.margin>
                                           <Insets />
                                        </VBox.margin>
@@ -186,44 +186,76 @@
                               </VBox>
                               <VBox alignment="CENTER" prefHeight="49.0" prefWidth="821.0">
                                  <children>
-                                    <TextFlow prefHeight="33.0" prefWidth="226.0">
+                                    <TextFlow prefHeight="9.0" prefWidth="414.0">
                                        <children>
-                                          <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="381.0" text="ENTER A CITATION AMOUNT ($)" textFill="#f2e8cf">
+                                          <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="414.0" text="ENTER A CITATION AMOUNT ($)" textFill="#f2e8cf">
                                              <font>
                                                 <Font name="System Bold" size="13.0" />
                                              </font>
                                           </Label>
                                        </children>
                                     </TextFlow>
-                                    <HBox alignment="CENTER" prefHeight="37.0" prefWidth="380.0">
+                                    <HBox alignment="CENTER" prefHeight="22.0" prefWidth="414.0">
                                        <children>
-                                          <TextField alignment="CENTER" prefHeight="5.0" prefWidth="252.0" style="-fx-text-fill: white; -fx-background-color: #5F4D6B; -fx-border-color: #f2e8cf; -fx-cursor: text;" />
+                                          <TextField alignment="CENTER" prefHeight="18.0" prefWidth="252.0" style="-fx-text-fill: white; -fx-background-color: #5F4D6B; -fx-border-color: #f2e8cf; -fx-cursor: text;" />
                                        </children>
                                     </HBox>
                                  </children>
                               </VBox>
                            </children>
                         </HBox>
-                        <HBox alignment="CENTER" prefHeight="174.0" prefWidth="828.0">
+                        <VBox prefHeight="17.0" prefWidth="831.0">
                            <children>
-                              <TextFlow prefHeight="201.0" prefWidth="464.0">
+                              <Label alignment="CENTER" prefHeight="75.0" prefWidth="828.0" text="ENTER VEHICLE INFORMATION" textFill="#f2e8cf">
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" top="20.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                                  <children>
-                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="174.0" prefWidth="377.0" text="Cost Information Here" textFill="#f2e8cf" />
+                                    <VBox alignment="CENTER" prefHeight="46.0" prefWidth="120.0">
+                                       <children>
+                                          <Label alignment="CENTER" prefHeight="17.0" prefWidth="132.0" text="LICENCE PLATE" textFill="#f2e8cf" />
+                                          <TextField style="-fx-background-color: #5F4D6B; -fx-text-fill: white; -fx-border-color: #f2e8cf; -fx-cursor: text;" />
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" prefHeight="46.0" prefWidth="120.0">
+                                       <children>
+                                          <Label alignment="CENTER" prefHeight="17.0" prefWidth="132.0" text="MAKE" textFill="#f2e8cf" />
+                                          <TextField prefHeight="29.0" prefWidth="120.0" style="-fx-background-color: #5F4D6B; -fx-text-fill: white; -fx-border-color: #f2e8cf; -fx-cursor: text;" />
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" prefHeight="46.0" prefWidth="120.0">
+                                       <children>
+                                          <Label alignment="CENTER" prefHeight="17.0" prefWidth="132.0" text="MODEL" textFill="#f2e8cf" />
+                                          <TextField style="-fx-background-color: #5F4D6B; -fx-text-fill: white; -fx-border-color: #f2e8cf; -fx-cursor: text;" />
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" prefHeight="46.0" prefWidth="120.0">
+                                       <children>
+                                          <Label alignment="CENTER" prefHeight="17.0" prefWidth="132.0" text="YEAR" textFill="#f2e8cf" />
+                                          <TextField style="-fx-background-color: #5F4D6B; -fx-text-fill: white; -fx-border-color: #f2e8cf; -fx-cursor: text;" />
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" prefHeight="46.0" prefWidth="120.0">
+                                       <children>
+                                          <Label alignment="CENTER" prefHeight="17.0" prefWidth="132.0" text="COLOR" textFill="#f2e8cf" />
+                                          <TextField style="-fx-background-color: #5F4D6B; -fx-text-fill: white; -fx-border-color: #f2e8cf; -fx-cursor: text;" />
+                                       </children>
+                                    </VBox>
                                  </children>
-                              </TextFlow>
-                              <TextFlow prefHeight="68.0" prefWidth="455.0">
-                                 <children>
-                                    <Label alignment="CENTER" prefHeight="173.0" prefWidth="409.0" text="Citation Information Here" textFill="#f2e8cf" />
-                                 </children>
-                              </TextFlow>
+                              </HBox>
                            </children>
-                        </HBox>
+                        </VBox>
                      </children>
                   </VBox>
                   <VBox alignment="CENTER" prefHeight="37.0" prefWidth="828.0">
                      <children>
                         <Button alignment="CENTER" mnemonicParsing="false" prefHeight="27.0" prefWidth="70.0" style="-fx-background-color: #5F4D6B; -fx-border-color: #f2e8cf;" text="Issue" textAlignment="CENTER" textFill="#f2e8cf" />
                      </children>
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
                   </VBox>
                </children>
             </VBox>

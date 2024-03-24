@@ -15,7 +15,7 @@ public class Main extends Application {
 
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("log-in.fxml")));
 
-        // TEST - to see issue-citation page
+        // Uncomment to test citation page
         // Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("issue-citation.fxml")));
 
         stage.setTitle("Log In");
