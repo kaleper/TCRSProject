@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
@@ -15,7 +22,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.TextFlow?>
 
-<BorderPane prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #403248;" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="project.cosctcrs.LoggedInController">
+<BorderPane prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #403248;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.cosctcrs.LoggedInController">
    <top>
       <HBox alignment="CENTER" BorderPane.alignment="CENTER">
          <children>
@@ -76,7 +83,7 @@
                <children>
                   <VBox alignment="CENTER" prefHeight="99.0" prefWidth="247.0">
                      <children>
-                        <TextField prefHeight="28.0" prefWidth="237.0" promptText="Enter a name or license plate" style="-fx-background-color: #5F4D6B; -fx-border-color: #f2e8cf; -fx-cursor: hand;">
+                        <TextField prefHeight="28.0" prefWidth="237.0" promptText="Enter a name or license plate" style="-fx-background-color: #5F4D6B; -fx-border-color: #f2e8cf; -fx-cursor: hand; -fx-text-fill: white;">
                            <opaqueInsets>
                               <Insets />
                            </opaqueInsets>
@@ -97,7 +104,7 @@
                <children>
                   <VBox alignment="CENTER" prefHeight="100.0" prefWidth="251.0">
                      <children>
-                        <TextField promptText="Enter a name or officer number" style="-fx-background-color: #5F4D6B; -fx-border-color: #f2e8cf; -fx-cursor: hand;" />
+                        <TextField promptText="Enter a name or officer number" style="-fx-background-color: #5F4D6B; -fx-border-color: #f2e8cf; -fx-cursor: hand; -fx-text-fill: white;" />
                      </children>
                   </VBox>
                   <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="29.0" prefWidth="113.0" style="-fx-background-color: #5F4D6B; -fx-border-color: #f2e8cf; -fx-cursor: hand;" text="Search Officers" textFill="#f2e8cf">
