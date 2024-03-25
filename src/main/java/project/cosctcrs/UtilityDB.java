@@ -116,7 +116,7 @@ public class UtilityDB extends MyJDBC {
             if (!resultSet.next()) {
                 System.out.println("User not found in database.");
                 Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setContentText("Provided credentials are incorrect");
+                alert.setContentText("Incorrect username or password.");
                 alert.show();
             } else {
                 String retrievedPassword = resultSet.getString("password");
@@ -125,7 +125,8 @@ public class UtilityDB extends MyJDBC {
                 } else {
                     System.out.println("Password is incorrect.");
                     Alert alert = new Alert(Alert.AlertType.ERROR);
-                    alert.setContentText("Provided credentials are incorrect.");
+                    alert.setContentText("Incorrect username or password.");
+                    alert.show();
                 }
             }
         } catch (SQLException e) {
