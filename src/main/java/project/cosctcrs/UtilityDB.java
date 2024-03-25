@@ -16,8 +16,8 @@ import java.util.Objects;
 
 public class UtilityDB extends MyJDBC {
     public static void main(String[] args) {
-        System.out.println(DBQueryCol("citations", "licence_plate"));
-        System.out.println(itemExists("citations", "licence_plate","CKR423"));
+        //System.out.println(DBQueryCol("citations", "licence_plate"));
+        //System.out.println(itemExists("citations", "licence_plate","CKR423"));
     }
 
     // checks if an item exists in a table
@@ -151,8 +151,14 @@ public class UtilityDB extends MyJDBC {
             try {
                 FXMLLoader loader = new FXMLLoader(UtilityDB.class.getResource(fxmlFile));
                 root = loader.load();
-                LoggedInController loggedInController = loader.getController();
-                loggedInController.setUserInformation(getUserTitle(username), getUserFirstName(username), getUserLastName(username));
+                if (fxmlFile.equals("logged-in.fxml")) {
+                    LoggedInController loggedInController = loader.getController();
+                    loggedInController.setUserInformation(getUserTitle(username), getUserFirstName(username), getUserLastName(username));
+                }
+                if (fxmlFile.equals("issue-citation.fxml")) {
+                    IssueCitationController issueCitationController = loader.getController();
+                    issueCitationController.setUserInformation(getUserTitle(username), getUserFirstName(username), getUserLastName(username));
+                }
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
@@ -306,5 +312,70 @@ public class UtilityDB extends MyJDBC {
         }
     }
 
+    public static Integer getOfficerID(String first_name, String last_name){
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
 
+        try {
+            connection = DriverManager.getConnection(getURL(), getUSERNAME(), getPASSWORD());
+
+            // Get officer_id to use in officer table
+            preparedStatement = connection.prepareStatement("SELECT officer_id FROM officers WHERE first_name = ? AND last_name = ?");
+            preparedStatement.setString(1, first_name);
+            preparedStatement.setString(2, last_name);
+            resultSet = preparedStatement.executeQuery();
+
+            if (!resultSet.next()) {
+                System.out.println("User not found in database.");
+                return null;
+            } else {
+                return resultSet.getInt("officer_id");
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            // Close resources in a finally block
+            try {
+                if (resultSet != null) resultSet.close();
+                if (preparedStatement != null) preparedStatement.close();
+                if (connection != null) connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public static String getUsername(Integer officer_id){
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+
+        try {
+            connection = DriverManager.getConnection(getURL(), getUSERNAME(), getPASSWORD());
+
+            // Get officer_id to use in officer table
+            preparedStatement = connection.prepareStatement("SELECT username FROM officer_logins WHERE officer_id = ?");
+            preparedStatement.setString(1, String.valueOf(officer_id));
+            resultSet = preparedStatement.executeQuery();
+
+            if (!resultSet.next()) {
+                System.out.println("User not found in database.");
+                return null;
+            } else {
+                return resultSet.getString("username");
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            // Close resources in a finally block
+            try {
+                if (resultSet != null) resultSet.close();
+                if (preparedStatement != null) preparedStatement.close();
+                if (connection != null) connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 }
