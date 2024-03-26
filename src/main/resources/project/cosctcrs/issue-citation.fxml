@@ -167,7 +167,7 @@
                                           </Label>
                                        </children>
                                     </TextFlow>
-                                    <ComboBox prefHeight="25.0" prefWidth="343.0" style="-fx-background-color: #5F4D6B; -fx-border-color: #f2e8cf; -fx-cursor: hand; -fx-text-fill: white;">
+                                    <ComboBox fx:id="cb_citation_type" prefHeight="25.0" prefWidth="343.0" style="-fx-background-color: #5F4D6B; -fx-border-color: #f2e8cf; -fx-cursor: hand; -fx-text-fill: white; -fx-text-inner-color: white;">
                                        <VBox.margin>
                                           <Insets />
                                        </VBox.margin>
