@@ -376,4 +376,167 @@ public class UtilityDB extends MyJDBC {
             }
         }
     }
+
+    public static void addCitationToDB(String first_name, String last_name, String drivers_licence, String address, String phone_num, String licence_plate, String make, String model, String year, String color, Integer officer_id, Integer code, Integer amount) {
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        int offender_id;
+        int vehicle_id;
+
+        try {
+            connection = DriverManager.getConnection(getURL(), getUSERNAME(), getPASSWORD());
+
+            // Check if the offender already exists
+            preparedStatement = connection.prepareStatement("SELECT offender_id FROM offenders WHERE first_name = ? AND last_name = ?");
+            preparedStatement.setString(1, first_name);
+            preparedStatement.setString(2, last_name);
+            resultSet = preparedStatement.executeQuery();
+
+            // If offender doesn't exist, add the offender to the DB and get their offender id
+            if (!resultSet.next()) {
+                System.out.println("Offender not found in database. Added to the table of offenders");
+                offender_id = addOffenderToDB(drivers_licence, first_name, last_name, address, phone_num);
+            } else {
+                offender_id = resultSet.getInt("offender_id");
+            }
+
+            // Check if the vehicle already exists
+            preparedStatement = connection.prepareStatement("SELECT vehicle_id FROM vehicles WHERE licence_plate = ?");
+            preparedStatement.setString(1, licence_plate);
+            resultSet = preparedStatement.executeQuery();
+
+            // If vehicle doesn't exist, add the vehicle to the DB and get its vehicle id
+            if (!resultSet.next()) {
+                System.out.println("Vehicle not found in database. Added to the table of vehicles");
+                vehicle_id = addVehicleToDB(licence_plate, make, model, year, color);
+            } else {
+                vehicle_id = resultSet.getInt("vehicle_id");
+            }
+
+            // Insert citation into citations table
+            preparedStatement = connection.prepareStatement("INSERT INTO citations (offender_id, issuing_officer_id, licence_plate, violation_code, paid, amount) VALUES (?, ?, ?, ?, ?, ?)");
+            preparedStatement.setInt(1, offender_id);
+            preparedStatement.setString(2, String.valueOf(officer_id));
+            preparedStatement.setString(3, licence_plate);
+            preparedStatement.setString(4, String.valueOf(code));
+            preparedStatement.setInt(5, 0); // Assuming citation is not paid initially
+            preparedStatement.setInt(6, amount);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            try {
+                if (resultSet != null) resultSet.close();
+                if (preparedStatement != null) preparedStatement.close();
+                if (connection != null) connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    // adds a new offender to the DB and returns their offender_id
+    public static int addOffenderToDB(String drivers_licence, String first_name, String last_name, String address, String phone_number) {
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+
+        try {
+            connection = DriverManager.getConnection(getURL(), getUSERNAME(), getPASSWORD());
+            String query = "INSERT INTO offenders (licence_number, first_name, last_name, home_address, phone_number, warrant) VALUES (?, ?, ?, ?, ?, ?)";
+            preparedStatement = connection.prepareStatement(query, PreparedStatement.RETURN_GENERATED_KEYS);
+            preparedStatement.setString(1, drivers_licence);
+            preparedStatement.setString(2, first_name);
+            preparedStatement.setString(3, last_name);
+            preparedStatement.setString(4, address);
+            preparedStatement.setString(5, phone_number);
+            preparedStatement.setString(6, String.valueOf(0));
+            preparedStatement.executeUpdate();
+
+            // Retrieve the generated keys (offender_id)
+            resultSet = preparedStatement.getGeneratedKeys();
+            if (resultSet.next()) {
+                return resultSet.getInt(1);
+            } else {
+                throw new SQLException("No keys generated.");
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            try {
+                if (resultSet != null) resultSet.close();
+                if (preparedStatement != null) preparedStatement.close();
+                if (connection != null) connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public static int addVehicleToDB(String licence_plate, String make, String model, String year, String color) {
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+
+        try {
+            connection = DriverManager.getConnection(getURL(), getUSERNAME(), getPASSWORD());
+            String query = "INSERT INTO vehicles (licence_plate, make, model, year, color) VALUES (?, ?, ?, ?, ?)";
+            preparedStatement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+            preparedStatement.setString(1, licence_plate);
+            preparedStatement.setString(2, make);
+            preparedStatement.setString(3, model);
+            preparedStatement.setString(4, year);
+            preparedStatement.setString(5, color);
+            preparedStatement.executeUpdate();
+
+            // Retrieve the generated keys (vehicle_id)
+            resultSet = preparedStatement.getGeneratedKeys();
+            if (resultSet.next()) {
+                return resultSet.getInt(1);
+            } else {
+                throw new SQLException("No keys generated.");
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            try {
+                if (resultSet != null) resultSet.close();
+                if (preparedStatement != null) preparedStatement.close();
+                if (connection != null) connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public static int getViolationCode(String name) {
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+
+        try {
+            connection = DriverManager.getConnection(getURL(), getUSERNAME(), getPASSWORD());
+            String query = "SELECT violation_code FROM violations WHERE violation_name = ?";
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, name);
+            resultSet = preparedStatement.executeQuery();
+
+            if (resultSet.next()) {
+                return resultSet.getInt("violation_code");
+            } else {
+                throw new SQLException("Violation not found in database.");
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            try {
+                if (resultSet != null) resultSet.close();
+                if (preparedStatement != null) preparedStatement.close();
+                if (connection != null) connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 }
