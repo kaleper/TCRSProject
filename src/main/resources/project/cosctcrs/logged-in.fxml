@@ -70,19 +70,15 @@
       </HBox>
    </top>
    <center>
-      <VBox alignment="CENTER" prefHeight="255.0" prefWidth="600.0" spacing="40.0">
+      <VBox alignment="CENTER" prefHeight="255.0" prefWidth="600.0" spacing="20.0">
          <children>
             <HBox alignment="CENTER" prefHeight="0.0" prefWidth="378.0" spacing="10.0">
                <children>
-                  <VBox alignment="CENTER" prefHeight="99.0" prefWidth="247.0">
-                     <children>
-                        <TextField prefHeight="28.0" prefWidth="237.0" promptText="Enter a name or license plate" style="-fx-background-color: #5F4D6B; -fx-border-color: #f2e8cf; -fx-cursor: hand; -fx-text-fill: white;">
-                           <opaqueInsets>
-                              <Insets />
-                           </opaqueInsets>
-                        </TextField>
-                     </children>
-                  </VBox>
+                  <TextField prefHeight="27.0" prefWidth="232.0" promptText="Enter a name or license plate" style="-fx-background-color: #5F4D6B; -fx-border-color: #f2e8cf; -fx-cursor: hand; -fx-text-fill: white;">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </TextField>
                   <Button alignment="CENTER" mnemonicParsing="false" prefHeight="29.0" prefWidth="113.0" style="-fx-background-color: #5F4D6B; -fx-border-color: #f2e8cf; -fx-cursor: hand;" text="Search Drivers" textFill="#f2e8cf">
                      <cursor>
                         <Cursor fx:constant="HAND" />
@@ -95,11 +91,7 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="17.0" prefWidth="378.0" spacing="10.0">
                <children>
-                  <VBox alignment="CENTER" prefHeight="100.0" prefWidth="251.0">
-                     <children>
-                        <TextField promptText="Enter a name or officer number" style="-fx-background-color: #5F4D6B; -fx-border-color: #f2e8cf; -fx-cursor: hand; -fx-text-fill: white;" />
-                     </children>
-                  </VBox>
+                  <TextField prefHeight="27.0" prefWidth="232.0" promptText="Enter a name or officer number" style="-fx-background-color: #5F4D6B; -fx-border-color: #f2e8cf; -fx-cursor: hand; -fx-text-fill: white;" />
                   <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="29.0" prefWidth="113.0" style="-fx-background-color: #5F4D6B; -fx-border-color: #f2e8cf; -fx-cursor: hand;" text="Search Officers" textFill="#f2e8cf">
                      <cursor>
                         <Cursor fx:constant="HAND" />
@@ -107,6 +99,11 @@
                   </Button>
                </children>
             </HBox>
+            <Button fx:id="button_open_issue_scene" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="29.0" prefWidth="356.0" style="-fx-background-color: #5F4D6B; -fx-border-color: #f2e8cf; -fx-cursor: hand;" text="Issue Citation" textFill="#f2e8cf">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
          </children>
          <cursor>
             <Cursor fx:constant="HAND" />
