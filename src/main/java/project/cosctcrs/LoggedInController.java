@@ -17,25 +17,35 @@ public class LoggedInController implements Initializable {
     Button button_logout;
 
     @FXML
+    Button button_open_issue_scene;
+
+    @FXML
     Label label_title;
 
     @FXML
     Label label_name;
     @FXML
     Label date;
+
+    Integer officer_id;
+    String username;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        button_logout.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                UtilityDB.changeScene(event, "log-in.fxml", "Log In", null);
-
-            }
+        button_logout.setOnAction(event -> {
+            UtilityDB.changeScene(event, "log-in.fxml", "Log In", null);
+            officer_id = null;
+            date.setText(Main.getDate());
         });
-        date.setText(Main.getDate());
+
+        button_open_issue_scene.setOnAction(event -> {
+            UtilityDB.changeScene(event, "issue-citation.fxml", "Log In", username);
+        });
     }
+
     public void setUserInformation(String title, String first_name, String last_name){
         label_title.setText(title);
         label_name.setText(first_name + " " + last_name);
+        officer_id = UtilityDB.getOfficerID(first_name, last_name);
+        username = UtilityDB.getUsername(officer_id);
     }
 }
