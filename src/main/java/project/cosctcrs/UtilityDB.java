@@ -220,7 +220,6 @@ public class UtilityDB extends MyJDBC {
         }
     }
 
-
     public static String getUserFirstName(String username){
         Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -265,7 +264,6 @@ public class UtilityDB extends MyJDBC {
             }
         }
     }
-
 
     public static String getUserLastName(String username){
         Connection connection = null;
