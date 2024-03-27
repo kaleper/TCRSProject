@@ -47,11 +47,11 @@ public class LoggedInController implements Initializable {
         });
 
         button_open_search_drivers.setOnAction(event -> {
-            UtilityDB.openPopUp(event, "pop-up-drivers.fxml");
+            UtilityDB.openPopUp(event, "pop-up-drivers.fxml", "Search For A Driver");
         });
 
         button_open_search_officers.setOnAction(event -> {
-            UtilityDB.openPopUp(event, "pop-up-officers.fxml");
+            UtilityDB.openPopUp(event, "pop-up-officers.fxml", "Search For An Officer");
         });
     }
 

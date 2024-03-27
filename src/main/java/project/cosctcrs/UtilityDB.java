@@ -176,7 +176,7 @@ public class UtilityDB extends MyJDBC {
         stage.show();
     }
 
-    public static void openPopUp(ActionEvent event, String fxmlFile) {
+    public static void openPopUp(ActionEvent event, String fxmlFile, String stage_title) {
         try {
                 FXMLLoader popUpLoader = new FXMLLoader(UtilityDB.class.getResource(fxmlFile));
                 Parent root2 = (Parent) popUpLoader.load();
