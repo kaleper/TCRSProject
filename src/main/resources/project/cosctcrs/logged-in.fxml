@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
@@ -15,7 +22,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.TextFlow?>
 
-<BorderPane prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #403248;" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="project.cosctcrs.LoggedInController">
+<BorderPane prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #403248;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.cosctcrs.LoggedInController">
    <top>
       <HBox alignment="CENTER" BorderPane.alignment="CENTER">
          <children>
@@ -79,7 +86,7 @@
                         <Insets />
                      </opaqueInsets>
                   </TextField>
-                  <Button alignment="CENTER" mnemonicParsing="false" prefHeight="29.0" prefWidth="113.0" style="-fx-background-color: #5F4D6B; -fx-border-color: #f2e8cf; -fx-cursor: hand;" text="Search Drivers" textFill="#f2e8cf">
+                  <Button fx:id="button_open_search_drivers" alignment="CENTER" mnemonicParsing="false" prefHeight="29.0" prefWidth="113.0" style="-fx-background-color: #5F4D6B; -fx-border-color: #f2e8cf; -fx-cursor: hand;" text="Search Drivers" textFill="#f2e8cf">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
@@ -92,7 +99,7 @@
             <HBox alignment="CENTER" prefHeight="17.0" prefWidth="378.0" spacing="10.0">
                <children>
                   <TextField prefHeight="27.0" prefWidth="232.0" promptText="Enter a name or officer number" style="-fx-background-color: #5F4D6B; -fx-border-color: #f2e8cf; -fx-cursor: hand; -fx-text-fill: white;" />
-                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="29.0" prefWidth="113.0" style="-fx-background-color: #5F4D6B; -fx-border-color: #f2e8cf; -fx-cursor: hand;" text="Search Officers" textFill="#f2e8cf">
+                  <Button fx:id="button_open_search_officers" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="29.0" prefWidth="113.0" style="-fx-background-color: #5F4D6B; -fx-border-color: #f2e8cf; -fx-cursor: hand;" text="Search Officers" textFill="#f2e8cf">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
