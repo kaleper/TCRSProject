@@ -3,7 +3,7 @@ package project.cosctcrs;
 import javafx.scene.control.Alert;
 import java.sql.*;
 
-public class SchoolSessionManager {
+public class SchoolSessionManager extends MyJDBC{
     void scheduleSession(int startTime, int endTime, String Location){
         //creates a new traffic school session
 
@@ -56,7 +56,7 @@ public class SchoolSessionManager {
             // Close resources in a finally block
             try {
                 if (resultSet != null) resultSet.close();
-                if (preparedStatement != null) preparedStatement.close();
+                if (checkForDriver != null) checkForDriver.close();
                 if (connection != null) connection.close();
             } catch (SQLException e) {
                 // Handle or log any exceptions when closing resources
