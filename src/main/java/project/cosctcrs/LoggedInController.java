@@ -36,10 +36,11 @@ public class LoggedInController implements Initializable {
     String username;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        date.setText(Main.getDate());
+
         button_logout.setOnAction(event -> {
             UtilityDB.changeScene(event, "log-in.fxml", "Log In", null);
             officer_id = null;
-            date.setText(Main.getDate());
         });
 
         button_open_issue_scene.setOnAction(event -> {
