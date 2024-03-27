@@ -99,100 +99,100 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
                <children>
-                  <HBox alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT" prefHeight="58.0" prefWidth="828.0">
+                  <Label alignment="CENTER" prefHeight="27.0" prefWidth="808.0" text="Issue Citation" textFill="#f2e8cf">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="10.0" />
+                     </VBox.margin>
+                  </Label>
+                  <HBox alignment="CENTER" fillHeight="false" prefHeight="29.0" prefWidth="828.0" spacing="10.0">
                      <children>
-                        <TextFlow prefHeight="22.0" prefWidth="828.0" textAlignment="CENTER">
+                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="180.0">
                            <children>
-                              <Label alignment="CENTER" prefHeight="27.0" prefWidth="808.0" text="Issue Citation" textFill="#f2e8cf">
-                                 <font>
-                                    <Font size="24.0" />
-                                 </font>
-                              </Label>
+                              <HBox prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <Label alignment="CENTER" prefHeight="30.0" prefWidth="200.0" text="Driver Name" textFill="#f2e8cf">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="100.0" prefWidth="200.0" spacing="2.0">
+                                 <children>
+                                    <TextField fx:id="tf_first_name" prefHeight="27.0" prefWidth="109.0" promptText="First Name" style="-fx-background-color: #5F4D6B; -fx-text-fill: white; -fx-border-color: #f2e8cf; -fx-cursor: text;" />
+                                    <TextField fx:id="tf_last_name" prefHeight="27.0" prefWidth="109.0" promptText="Last Name" style="-fx-background-color: #5F4D6B; -fx-text-fill: white; -fx-border-color: #f2e8cf; -fx-cursor: text;" />
+                                 </children>
+                              </HBox>
                            </children>
-                        </TextFlow>
-                     </children>
-                  </HBox>
-                  <HBox alignment="CENTER" fillHeight="false" prefHeight="29.0" prefWidth="828.0">
-                     <children>
-                        <TextFlow prefHeight="0.0" prefWidth="200.0" textAlignment="CENTER">
+                        </VBox>
+                        <VBox alignment="CENTER" layoutX="752.0" layoutY="10.0" prefHeight="47.0" prefWidth="180.0">
                            <children>
-                              <Label alignment="CENTER" prefHeight="30.0" prefWidth="200.0" text="Driver Name" textFill="#f2e8cf">
+                              <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="128.0" text="Driver's License #" textFill="#f2e8cf">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </Label>
+                              <TextField fx:id="tf_drivers_licence" style="-fx-background-color: #5F4D6B; -fx-text-fill: white; -fx-border-color: #f2e8cf; -fx-cursor: text;" />
                            </children>
-                        </TextFlow>
-                        <TextFlow prefWidth="200.0" textAlignment="CENTER">
-                           <children>
-                              <Label alignment="CENTER" prefHeight="18.0" prefWidth="200.0" text="Driver's License #" textFill="#f2e8cf">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </TextFlow>
-                        <TextFlow prefWidth="200.0" textAlignment="CENTER">
+                        </VBox>
+                        <VBox layoutX="766.0" layoutY="10.0" prefHeight="47.0" prefWidth="180.0">
                            <children>
                               <Label alignment="CENTER" prefHeight="18.0" prefWidth="200.0" text="Driver's Address" textFill="#f2e8cf">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </Label>
+                              <TextField fx:id="tf_address" style="-fx-background-color: #5F4D6B; -fx-text-fill: white; -fx-border-color: #f2e8cf; -fx-cursor: text;" />
                            </children>
-                        </TextFlow>
-                        <TextFlow prefWidth="200.0" textAlignment="CENTER">
+                        </VBox>
+                        <VBox layoutX="776.0" layoutY="10.0" prefHeight="47.0" prefWidth="180.0">
                            <children>
                               <Label alignment="CENTER" prefHeight="18.0" prefWidth="200.0" text="Driver Phone Number" textFill="#f2e8cf">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </Label>
+                              <TextField fx:id="tf_phone_number" style="-fx-background-color: #5F4D6B; -fx-text-fill: white; -fx-border-color: #f2e8cf; -fx-cursor: text;" />
                            </children>
-                        </TextFlow>
+                        </VBox>
                      </children>
                   </HBox>
                   <VBox alignment="CENTER" prefHeight="220.0" prefWidth="828.0">
                      <children>
-                        <HBox alignment="CENTER" prefHeight="83.0" prefWidth="828.0">
+                        <HBox alignment="CENTER" prefHeight="83.0" prefWidth="828.0" spacing="10.0">
                            <children>
-                              <VBox alignment="CENTER" prefHeight="49.0" prefWidth="821.0">
+                              <VBox alignment="CENTER" prefHeight="83.0" prefWidth="938.0">
                                  <children>
-                                    <TextFlow prefHeight="19.0" prefWidth="414.0">
-                                       <children>
-                                          <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="414.0" text="SELECT A CITATION" textFill="#f2e8cf">
-                                             <font>
-                                                <Font name="System Bold" size="13.0" />
-                                             </font>
-                                          </Label>
-                                       </children>
-                                    </TextFlow>
-                                    <ComboBox prefHeight="25.0" prefWidth="343.0" style="-fx-background-color: #5F4D6B; -fx-border-color: #f2e8cf; -fx-cursor: hand; -fx-text-fill: white;">
+                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="414.0" text="SELECT A CITATION" textFill="#f2e8cf">
+                                       <font>
+                                          <Font name="System Bold" size="13.0" />
+                                       </font>
+                                    </Label>
+                                    <ComboBox fx:id="cb_citation_type" prefHeight="27.0" prefWidth="404.0" style="-fx-background-color: #5F4D6B; -fx-border-color: #f2e8cf; -fx-cursor: hand; -fx-text-fill: white; -fx-text-inner-color: white;">
                                        <VBox.margin>
                                           <Insets />
                                        </VBox.margin>
                                     </ComboBox>
                                  </children>
                                  <HBox.margin>
-                                    <Insets />
+                                    <Insets left="40.0" />
                                  </HBox.margin>
                               </VBox>
-                              <VBox alignment="CENTER" prefHeight="49.0" prefWidth="821.0">
+                              <VBox alignment="CENTER" prefHeight="83.0" prefWidth="976.0">
                                  <children>
-                                    <TextFlow prefHeight="9.0" prefWidth="414.0">
-                                       <children>
-                                          <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="414.0" text="ENTER A CITATION AMOUNT ($)" textFill="#f2e8cf">
-                                             <font>
-                                                <Font name="System Bold" size="13.0" />
-                                             </font>
-                                          </Label>
-                                       </children>
-                                    </TextFlow>
-                                    <HBox alignment="CENTER" prefHeight="22.0" prefWidth="414.0">
-                                       <children>
-                                          <TextField alignment="CENTER" prefHeight="18.0" prefWidth="252.0" style="-fx-text-fill: white; -fx-background-color: #5F4D6B; -fx-border-color: #f2e8cf; -fx-cursor: text;" />
-                                       </children>
-                                    </HBox>
+                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="414.0" text="ENTER A CITATION AMOUNT ($)" textFill="#f2e8cf">
+                                       <font>
+                                          <Font name="System Bold" size="13.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="tf_amount" alignment="CENTER" prefHeight="27.0" prefWidth="388.0" style="-fx-text-fill: white; -fx-background-color: #5F4D6B; -fx-border-color: #f2e8cf; -fx-cursor: text;">
+                                       <VBox.margin>
+                                          <Insets right="40.0" />
+                                       </VBox.margin>
+                                    </TextField>
                                  </children>
                               </VBox>
                            </children>
@@ -204,36 +204,36 @@
                                     <Insets bottom="10.0" top="20.0" />
                                  </VBox.margin>
                               </Label>
-                              <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                              <HBox alignment="CENTER" prefHeight="44.0" prefWidth="839.0" spacing="10.0">
                                  <children>
-                                    <VBox alignment="CENTER" prefHeight="46.0" prefWidth="120.0">
+                                    <VBox alignment="CENTER" prefHeight="44.0" prefWidth="142.0">
                                        <children>
-                                          <Label alignment="CENTER" prefHeight="17.0" prefWidth="132.0" text="LICENCE PLATE" textFill="#f2e8cf" />
-                                          <TextField style="-fx-background-color: #5F4D6B; -fx-text-fill: white; -fx-border-color: #f2e8cf; -fx-cursor: text;" />
+                                          <Label alignment="CENTER" prefHeight="17.0" prefWidth="128.0" text="LICENCE PLATE" textFill="#f2e8cf" />
+                                          <TextField fx:id="tf_licence_plate" prefHeight="27.0" prefWidth="137.0" style="-fx-background-color: #5F4D6B; -fx-text-fill: white; -fx-border-color: #f2e8cf; -fx-cursor: text;" />
                                        </children>
                                     </VBox>
-                                    <VBox alignment="CENTER" prefHeight="46.0" prefWidth="120.0">
+                                    <VBox alignment="CENTER" prefHeight="46.0" prefWidth="142.0">
                                        <children>
                                           <Label alignment="CENTER" prefHeight="17.0" prefWidth="132.0" text="MAKE" textFill="#f2e8cf" />
-                                          <TextField prefHeight="29.0" prefWidth="120.0" style="-fx-background-color: #5F4D6B; -fx-text-fill: white; -fx-border-color: #f2e8cf; -fx-cursor: text;" />
+                                          <TextField fx:id="tf_make" prefHeight="27.0" prefWidth="149.0" style="-fx-background-color: #5F4D6B; -fx-text-fill: white; -fx-border-color: #f2e8cf; -fx-cursor: text;" />
                                        </children>
                                     </VBox>
-                                    <VBox alignment="CENTER" prefHeight="46.0" prefWidth="120.0">
+                                    <VBox alignment="CENTER" prefHeight="46.0" prefWidth="142.0">
                                        <children>
                                           <Label alignment="CENTER" prefHeight="17.0" prefWidth="132.0" text="MODEL" textFill="#f2e8cf" />
-                                          <TextField style="-fx-background-color: #5F4D6B; -fx-text-fill: white; -fx-border-color: #f2e8cf; -fx-cursor: text;" />
+                                          <TextField fx:id="tf_model" prefHeight="27.0" prefWidth="224.0" style="-fx-background-color: #5F4D6B; -fx-text-fill: white; -fx-border-color: #f2e8cf; -fx-cursor: text;" />
                                        </children>
                                     </VBox>
-                                    <VBox alignment="CENTER" prefHeight="46.0" prefWidth="120.0">
+                                    <VBox alignment="CENTER" prefHeight="46.0" prefWidth="142.0">
                                        <children>
                                           <Label alignment="CENTER" prefHeight="17.0" prefWidth="132.0" text="YEAR" textFill="#f2e8cf" />
-                                          <TextField style="-fx-background-color: #5F4D6B; -fx-text-fill: white; -fx-border-color: #f2e8cf; -fx-cursor: text;" />
+                                          <TextField fx:id="tf_year" prefHeight="27.0" prefWidth="160.0" style="-fx-background-color: #5F4D6B; -fx-text-fill: white; -fx-border-color: #f2e8cf; -fx-cursor: text;" />
                                        </children>
                                     </VBox>
-                                    <VBox alignment="CENTER" prefHeight="46.0" prefWidth="120.0">
+                                    <VBox alignment="CENTER" prefHeight="46.0" prefWidth="142.0">
                                        <children>
                                           <Label alignment="CENTER" prefHeight="17.0" prefWidth="132.0" text="COLOR" textFill="#f2e8cf" />
-                                          <TextField style="-fx-background-color: #5F4D6B; -fx-text-fill: white; -fx-border-color: #f2e8cf; -fx-cursor: text;" />
+                                          <TextField fx:id="tf_color" prefHeight="27.0" prefWidth="241.0" style="-fx-background-color: #5F4D6B; -fx-text-fill: white; -fx-border-color: #f2e8cf; -fx-cursor: text;" />
                                        </children>
                                     </VBox>
                                  </children>
@@ -244,7 +244,7 @@
                   </VBox>
                   <VBox alignment="CENTER" prefHeight="37.0" prefWidth="828.0">
                      <children>
-                        <Button alignment="CENTER" mnemonicParsing="false" prefHeight="27.0" prefWidth="70.0" style="-fx-background-color: #5F4D6B; -fx-border-color: #f2e8cf;" text="Issue" textAlignment="CENTER" textFill="#f2e8cf" />
+                        <Button fx:id="button_issue" alignment="CENTER" mnemonicParsing="false" prefHeight="27.0" prefWidth="70.0" style="-fx-background-color: #5F4D6B; -fx-border-color: #f2e8cf;" text="Issue" textAlignment="CENTER" textFill="#f2e8cf" />
                      </children>
                      <VBox.margin>
                         <Insets top="20.0" />
