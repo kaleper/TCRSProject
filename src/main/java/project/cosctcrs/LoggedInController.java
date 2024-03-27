@@ -27,6 +27,11 @@ public class LoggedInController implements Initializable {
     @FXML
     Label date;
 
+    @FXML
+    Button button_open_search_drivers;
+    @FXML
+    Button button_open_search_officers;
+
     Integer officer_id;
     String username;
     @Override
@@ -39,6 +44,14 @@ public class LoggedInController implements Initializable {
 
         button_open_issue_scene.setOnAction(event -> {
             UtilityDB.changeScene(event, "issue-citation.fxml", "Log In", username);
+        });
+
+        button_open_search_drivers.setOnAction(event -> {
+            UtilityDB.openPopUp(event, "pop-up-drivers.fxml");
+        });
+
+        button_open_search_officers.setOnAction(event -> {
+            UtilityDB.openPopUp(event, "pop-up-officers.fxml");
         });
     }
 

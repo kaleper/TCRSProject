@@ -159,6 +159,7 @@ public class UtilityDB extends MyJDBC {
                     IssueCitationController issueCitationController = loader.getController();
                     issueCitationController.setUserInformation(getUserTitle(username), getUserFirstName(username), getUserLastName(username));
                 }
+
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
@@ -174,6 +175,21 @@ public class UtilityDB extends MyJDBC {
         stage.setScene(new Scene(root,800, 500));
         stage.show();
     }
+
+    public static void openPopUp(ActionEvent event, String fxmlFile) {
+        try {
+                FXMLLoader popUpLoader = new FXMLLoader(UtilityDB.class.getResource(fxmlFile));
+                Parent root2 = (Parent) popUpLoader.load();
+                Stage popUpStage = new Stage();
+                popUpStage.setTitle(fxmlFile);
+                popUpStage.setScene(new Scene (root2));
+                popUpStage.show();
+
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+        }
+    }
+
 
     public static String getUserTitle(String username){
         Connection connection = null;
@@ -539,4 +555,5 @@ public class UtilityDB extends MyJDBC {
             }
         }
     }
+
 }
