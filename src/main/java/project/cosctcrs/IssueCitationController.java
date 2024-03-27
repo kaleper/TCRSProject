@@ -27,6 +27,9 @@ public class IssueCitationController implements Initializable {
     Label label_name;
 
     @FXML
+    Label date;
+
+    @FXML
     ComboBox cb_citation_type;
 
     @FXML
@@ -68,6 +71,7 @@ public class IssueCitationController implements Initializable {
     int selected_violation_code;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        date.setText(Main.getDate());
         // populates combo list
         ArrayList<String> violation_names = UtilityDB.DBQueryCol("violations", "violation_name");
         for (String names : violation_names){
