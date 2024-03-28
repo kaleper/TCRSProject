@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
@@ -16,7 +23,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.TextFlow?>
 
-<BorderPane prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #403248;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.cosctcrs.IssueCitationController">
+<BorderPane prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #403248;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.cosctcrs.IssueCitationController">
    <top>
       <HBox alignment="CENTER" BorderPane.alignment="CENTER">
          <children>
@@ -134,7 +141,7 @@
                                     <Font size="14.0" />
                                  </font>
                               </Label>
-                              <TextField fx:id="tf_drivers_licence" style="-fx-background-color: #5F4D6B; -fx-text-fill: white; -fx-border-color: #f2e8cf; -fx-cursor: text;" />
+                              <TextField fx:id="tf_drivers_licence" promptText="######" style="-fx-background-color: #5F4D6B; -fx-text-fill: white; -fx-border-color: #f2e8cf; -fx-cursor: text;" />
                            </children>
                         </VBox>
                         <VBox layoutX="766.0" layoutY="10.0" prefHeight="47.0" prefWidth="180.0">
@@ -144,7 +151,7 @@
                                     <Font size="14.0" />
                                  </font>
                               </Label>
-                              <TextField fx:id="tf_address" style="-fx-background-color: #5F4D6B; -fx-text-fill: white; -fx-border-color: #f2e8cf; -fx-cursor: text;" />
+                              <TextField fx:id="tf_address" promptText="Street, City, Province, Country" style="-fx-background-color: #5F4D6B; -fx-text-fill: white; -fx-border-color: #f2e8cf; -fx-cursor: text;" />
                            </children>
                         </VBox>
                         <VBox layoutX="776.0" layoutY="10.0" prefHeight="47.0" prefWidth="180.0">
@@ -154,7 +161,7 @@
                                     <Font size="14.0" />
                                  </font>
                               </Label>
-                              <TextField fx:id="tf_phone_number" style="-fx-background-color: #5F4D6B; -fx-text-fill: white; -fx-border-color: #f2e8cf; -fx-cursor: text;" />
+                              <TextField fx:id="tf_phone_number" promptText="#############" style="-fx-background-color: #5F4D6B; -fx-text-fill: white; -fx-border-color: #f2e8cf; -fx-cursor: text;" />
                            </children>
                         </VBox>
                      </children>
@@ -170,7 +177,8 @@
                                           <Font name="System Bold" size="13.0" />
                                        </font>
                                     </Label>
-                                    <ComboBox fx:id="cb_citation_type" prefHeight="27.0" prefWidth="404.0" style="-fx-background-color: #5F4D6B; -fx-border-color: #f2e8cf; -fx-cursor: hand; -fx-text-fill: white; -fx-text-inner-color: white;">
+                                    <ComboBox fx:id="cb_citation_type" prefHeight="27.0" prefWidth="404.0" style="-fx-background-color: #5F4D6B; -fx-border-color: #f2e8cf; -fx-cursor: hand; -fx-text-fill: #5F4D6B; -fx-fill: #5F4D6B;">
+                                       
                                        <VBox.margin>
                                           <Insets />
                                        </VBox.margin>
@@ -187,7 +195,7 @@
                                           <Font name="System Bold" size="13.0" />
                                        </font>
                                     </Label>
-                                    <TextField fx:id="tf_amount" alignment="CENTER" prefHeight="27.0" prefWidth="388.0" style="-fx-text-fill: white; -fx-background-color: #5F4D6B; -fx-border-color: #f2e8cf; -fx-cursor: text;">
+                                    <TextField fx:id="tf_amount" alignment="CENTER" prefHeight="27.0" prefWidth="388.0" promptText="Enter an amount" style="-fx-text-fill: white; -fx-background-color: #5F4D6B; -fx-border-color: #f2e8cf; -fx-cursor: text;">
                                        <VBox.margin>
                                           <Insets right="40.0" />
                                        </VBox.margin>
@@ -208,31 +216,31 @@
                                     <VBox alignment="CENTER" prefHeight="44.0" prefWidth="142.0">
                                        <children>
                                           <Label alignment="CENTER" prefHeight="17.0" prefWidth="128.0" text="LICENCE PLATE" textFill="#f2e8cf" />
-                                          <TextField fx:id="tf_licence_plate" prefHeight="27.0" prefWidth="137.0" style="-fx-background-color: #5F4D6B; -fx-text-fill: white; -fx-border-color: #f2e8cf; -fx-cursor: text;" />
+                                          <TextField fx:id="tf_licence_plate" prefHeight="27.0" prefWidth="137.0" promptText="######" style="-fx-background-color: #5F4D6B; -fx-text-fill: white; -fx-border-color: #f2e8cf; -fx-cursor: text;" />
                                        </children>
                                     </VBox>
                                     <VBox alignment="CENTER" prefHeight="46.0" prefWidth="142.0">
                                        <children>
                                           <Label alignment="CENTER" prefHeight="17.0" prefWidth="132.0" text="MAKE" textFill="#f2e8cf" />
-                                          <TextField fx:id="tf_make" prefHeight="27.0" prefWidth="149.0" style="-fx-background-color: #5F4D6B; -fx-text-fill: white; -fx-border-color: #f2e8cf; -fx-cursor: text;" />
+                                          <TextField fx:id="tf_make" prefHeight="27.0" prefWidth="149.0" promptText="Enter a make" style="-fx-background-color: #5F4D6B; -fx-text-fill: white; -fx-border-color: #f2e8cf; -fx-cursor: text;" />
                                        </children>
                                     </VBox>
                                     <VBox alignment="CENTER" prefHeight="46.0" prefWidth="142.0">
                                        <children>
                                           <Label alignment="CENTER" prefHeight="17.0" prefWidth="132.0" text="MODEL" textFill="#f2e8cf" />
-                                          <TextField fx:id="tf_model" prefHeight="27.0" prefWidth="224.0" style="-fx-background-color: #5F4D6B; -fx-text-fill: white; -fx-border-color: #f2e8cf; -fx-cursor: text;" />
+                                          <TextField fx:id="tf_model" prefHeight="27.0" prefWidth="224.0" promptText="Enter a model" style="-fx-background-color: #5F4D6B; -fx-text-fill: white; -fx-border-color: #f2e8cf; -fx-cursor: text;" />
                                        </children>
                                     </VBox>
                                     <VBox alignment="CENTER" prefHeight="46.0" prefWidth="142.0">
                                        <children>
                                           <Label alignment="CENTER" prefHeight="17.0" prefWidth="132.0" text="YEAR" textFill="#f2e8cf" />
-                                          <TextField fx:id="tf_year" prefHeight="27.0" prefWidth="160.0" style="-fx-background-color: #5F4D6B; -fx-text-fill: white; -fx-border-color: #f2e8cf; -fx-cursor: text;" />
+                                          <TextField fx:id="tf_year" prefHeight="27.0" prefWidth="160.0" promptText="Enter a year" style="-fx-background-color: #5F4D6B; -fx-text-fill: white; -fx-border-color: #f2e8cf; -fx-cursor: text;" />
                                        </children>
                                     </VBox>
                                     <VBox alignment="CENTER" prefHeight="46.0" prefWidth="142.0">
                                        <children>
                                           <Label alignment="CENTER" prefHeight="17.0" prefWidth="132.0" text="COLOR" textFill="#f2e8cf" />
-                                          <TextField fx:id="tf_color" prefHeight="27.0" prefWidth="241.0" style="-fx-background-color: #5F4D6B; -fx-text-fill: white; -fx-border-color: #f2e8cf; -fx-cursor: text;" />
+                                          <TextField fx:id="tf_color" prefHeight="27.0" prefWidth="241.0" promptText="Enter a color" style="-fx-background-color: #5F4D6B; -fx-text-fill: white; -fx-border-color: #f2e8cf; -fx-cursor: text;" />
                                        </children>
                                     </VBox>
                                  </children>
