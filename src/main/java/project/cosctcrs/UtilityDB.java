@@ -12,6 +12,7 @@ import org.apache.commons.dbutils.DbUtils;
 import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Objects;
 
 public class UtilityDB extends MyJDBC {
@@ -176,10 +177,18 @@ public class UtilityDB extends MyJDBC {
         stage.show();
     }
 
-    public static void openPopUp(ActionEvent event, String fxmlFile, String stage_title) {
+    public static void openPopUp(ActionEvent event, String fxmlFile, String stage_title, String search) {
         try {
                 FXMLLoader popUpLoader = new FXMLLoader(UtilityDB.class.getResource(fxmlFile));
                 Parent root2 = (Parent) popUpLoader.load();
+                if (fxmlFile.equals("pop-up-drivers.fxml")) {
+                    DriverPopUpController driverPopUpController = popUpLoader.getController();
+                    driverPopUpController.setLabel_driver_info(search);
+                }
+                if (fxmlFile.equals("pop-up-officers.fxml")){
+                    OfficerPopUpController officerPopUpController = popUpLoader.getController();
+                    officerPopUpController.setLabel_officer_info(search);
+                }
                 Stage popUpStage = new Stage();
                 popUpStage.setTitle(fxmlFile);
                 popUpStage.setScene(new Scene (root2));
@@ -546,6 +555,124 @@ public class UtilityDB extends MyJDBC {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         } finally {
+            try {
+                if (resultSet != null) resultSet.close();
+                if (preparedStatement != null) preparedStatement.close();
+                if (connection != null) connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public static String getOffenderInformationByName(String fullName) {
+        String[] nameParts = fullName.split("\\s+");
+        if (nameParts.length != 2) {
+            return null; // Return null if incorrect format is provided
+        }
+
+        String firstName = nameParts[0];
+        String lastName = nameParts[1];
+
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        String offenderInfo = "";
+
+        try {
+            connection = DriverManager.getConnection(getURL(), getUSERNAME(), getPASSWORD());
+
+            preparedStatement = connection.prepareStatement("SELECT * FROM offenders WHERE first_name = ? AND last_name = ?");
+            preparedStatement.setString(1, firstName);
+            preparedStatement.setString(2, lastName);
+            resultSet = preparedStatement.executeQuery();
+
+            if (!resultSet.next()) {
+                return null; // Return null if offender not found
+            } else {
+                offenderInfo += "Offender ID: " + resultSet.getInt("offender_id") + "\n";
+                offenderInfo += "Licence Number: " + resultSet.getString("licence_number") + "\n";
+                offenderInfo += "First Name: " + resultSet.getString("first_name") + "\n";
+                offenderInfo += "Last Name: " + resultSet.getString("last_name") + "\n";
+                offenderInfo += "Home Address: " + resultSet.getString("home_address") + "\n";
+                offenderInfo += "Phone Number: " + resultSet.getString("phone_number") + "\n";
+                offenderInfo += "Warrant: " + resultSet.getBoolean("warrant") + "\n";
+
+                return offenderInfo;
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            // Close resources in a finally block
+            try {
+                if (resultSet != null) resultSet.close();
+                if (preparedStatement != null) preparedStatement.close();
+                if (connection != null) connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public static String getOfficerInformation(String fullNameOrId) {
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        String officerInfo = "";
+
+        try {
+            connection = DriverManager.getConnection(getURL(), getUSERNAME(), getPASSWORD());
+
+            // Check if the input is numeric (officer ID) or string (full name)
+            boolean isNumeric = fullNameOrId.chars().allMatch(Character::isDigit);
+
+            if (isNumeric) {
+                // Query based on officer ID
+                preparedStatement = connection.prepareStatement("SELECT * FROM officers WHERE officer_id = ?");
+                preparedStatement.setInt(1, Integer.parseInt(fullNameOrId));
+            } else {
+                // Query based on full name
+                String[] nameParts = fullNameOrId.split("\\s+");
+                if (nameParts.length != 2) {
+                    // Return null if incorrect format is provided
+                    return null;
+                }
+                String firstName = nameParts[0];
+                String lastName = nameParts[1];
+                preparedStatement = connection.prepareStatement("SELECT * FROM officers WHERE first_name = ? AND last_name = ?");
+                preparedStatement.setString(1, firstName);
+                preparedStatement.setString(2, lastName);
+            }
+
+            resultSet = preparedStatement.executeQuery();
+
+            if (!resultSet.next()) {
+                // Return null if officer not found
+                return null;
+            } else {
+                // Extract officer information
+                officerInfo += "First Name: " + resultSet.getString("first_name") + "\n";
+                officerInfo += "Last Name: " + resultSet.getString("last_name") + "\n";
+                officerInfo += "Title: " + resultSet.getString("title") + "\n";
+
+                int officerId = resultSet.getInt("officer_id");
+
+                // Count how many citations the officer has issued
+                preparedStatement = connection.prepareStatement("SELECT COUNT(*) AS citation_count FROM citations WHERE issuing_officer_id = ?");
+                preparedStatement.setInt(1, officerId);
+                resultSet = preparedStatement.executeQuery();
+
+                if (resultSet.next()) {
+                    int citationCount = resultSet.getInt("citation_count");
+                    officerInfo += "Number of Citations Issued: " + citationCount + "\n";
+                }
+
+                return officerInfo;
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            // Close resources in a finally block
             try {
                 if (resultSet != null) resultSet.close();
                 if (preparedStatement != null) preparedStatement.close();
