@@ -16,10 +16,6 @@ import java.util.Arrays;
 import java.util.Objects;
 
 public class UtilityDB extends MyJDBC {
-    public static void main(String[] args) {
-        //System.out.println(DBQueryCol("citations", "licence_plate"));
-        //System.out.println(itemExists("citations", "licence_plate","CKR423"));
-    }
 
     // checks if an item exists in a table
     public static boolean itemExists(String table, String column, String item){

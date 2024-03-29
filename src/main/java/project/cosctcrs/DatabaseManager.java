@@ -3,10 +3,6 @@ package project.cosctcrs;
 import java.util.ArrayList;
 
 public class DatabaseManager extends UtilityDB {
-    public static void main(String[] args) {
-        System.out.println(DBQueryCol("citations", "licence_plate"));
-        System.out.println(queryVehicleInfo("CKR423"));
-    }
 
     public static String queryVehicleInfo(String licence_plate) {
         final String TABLE = "vehicles";
