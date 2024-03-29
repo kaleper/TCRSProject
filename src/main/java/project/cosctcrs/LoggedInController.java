@@ -2,8 +2,6 @@
 
 package project.cosctcrs;
 
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -61,5 +59,6 @@ public class LoggedInController implements Initializable {
         label_name.setText(first_name + " " + last_name);
         officer_id = UtilityDB.getOfficerID(first_name, last_name);
         username = UtilityDB.getUsername(officer_id);
+
     }
 }
