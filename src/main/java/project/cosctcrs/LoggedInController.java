@@ -6,8 +6,10 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -24,6 +26,7 @@ public class LoggedInController implements Initializable {
 
     @FXML
     Label label_name;
+
     @FXML
     Label date;
 
@@ -31,6 +34,13 @@ public class LoggedInController implements Initializable {
     Button button_open_search_drivers;
     @FXML
     Button button_open_search_officers;
+
+    @FXML
+    TextField tf_driver_name_plate;
+
+    @FXML
+    TextField tf_off_name_id;
+
 
     Integer officer_id;
     String username;
@@ -48,11 +58,44 @@ public class LoggedInController implements Initializable {
         });
 
         button_open_search_drivers.setOnAction(event -> {
-            UtilityDB.openPopUp(event, "pop-up-drivers.fxml", "Search For A Driver");
+            String offenderInfo = UtilityDB.getOffenderInformationByName(tf_driver_name_plate.getText());
+            if (offenderInfo == null) {
+                // Display an alert if offender not found in database
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setHeaderText(null);
+                alert.setContentText("Offender not found in database.");
+                alert.showAndWait();
+            } else {
+                // Open pop-up with offender information
+                UtilityDB.openPopUp(event, "pop-up-drivers.fxml", "Search For A Driver", offenderInfo);
+            }
         });
 
         button_open_search_officers.setOnAction(event -> {
-            UtilityDB.openPopUp(event, "pop-up-officers.fxml", "Search For An Officer");
+            String inputText = tf_off_name_id.getText().trim();
+            if (inputText.isEmpty()) {
+                // Display an alert if no input is provided
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setHeaderText(null);
+                alert.setContentText("Officer not found in database.");
+                alert.showAndWait();
+                return;
+            }
+
+            String officerInfo = UtilityDB.getOfficerInformation(inputText);
+            if (officerInfo == null) {
+                // Display an alert if officer not found in database
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setHeaderText(null);
+                alert.setContentText("Officer not found in database.");
+                alert.showAndWait();
+            } else {
+                // Open pop-up with officer information
+                UtilityDB.openPopUp(event, "pop-up-officers.fxml", "Search For An Officer", officerInfo);
+            }
         });
     }
 
